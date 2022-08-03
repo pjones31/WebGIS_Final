@@ -90,12 +90,12 @@ $.getJSON("COVID_Vulnerability_Index_Zip.geojson",function(data){
 	L.geoJson(data {
 		style: function(feature){
 			var conditionalColor;
-			var hardship = feature.properties.I;
-			if ( hardship > 80 ) conditionalColor = "#54278f";
-			else if ( hardship > 60 ) conditionalColor = "#756bb1";
-			else if ( hardship > 40 ) conditionalColor = "#9e9ac8";
-			else if ( hardship > 20 ) conditionalColor = "#bcbddc";
-			else if ( hardship > 0 ) conditionalColor = "#dadaeb";
+			var vulnerable = feature.properties.I;
+			if ( vulnerable > 550 ) conditionalColor = "#54278f";
+			else if ( vulnerable > 450 ) conditionalColor = "#756bb1";
+			else if ( vulnerable > 300 ) conditionalColor = "#9e9ac8";
+			else if ( vulnerable > 150 ) conditionalColor = "#bcbddc";
+			else if ( vulnerable > 0 ) conditionalColor = "#dadaeb";
 				// no data
 			return (	color: "gray",
 						weight: 1,
