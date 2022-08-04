@@ -85,29 +85,6 @@ $.getJSON("CPS_Locations.geojson",function(data){
 				onEachFeature: function(feature, layer){layer.bindPopup(feature.properties.Site_Name)}
 	}).addTo(map);
 
-	// second property - polygon Layer
-$.getJSON("COVID_Vulnerability_Index_Zip.geojson",function(data){
-	L.geoJson(data {
-		style: function(feature){
-			var conditionalColor;
-			var vulnerable = feature.properties.VI;
-			if ( vulnerable > 550 ) conditionalColor = "#54278f";
-			else if ( vulnerable > 450 ) conditionalColor = "#756bb1";
-			else if ( vulnerable > 300 ) conditionalColor = "#9e9ac8";
-			else if ( vulnerable > 150 ) conditionalColor = "#bcbddc";
-			else if ( vulnerable > 0 ) conditionalColor = "#dadaeb";
-				// no data
-			return (	color: "gray",
-						weight: 1,
-						fillColor: conditionalColor,
-						fillOpacity: 1, };
-		)},
-		onEachFeature: function( feature, Layer ){
-			layer.bindPopup("COVID_Vulnerability_Index_Zip " + feature.properties.CA + "<br/>" + Vulnerable Index: + feature.properties.VI )}
-		}
-	}).addTo(map).bringToback();
-});
-
 </script>
 
 	</body>
