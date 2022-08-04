@@ -71,19 +71,22 @@ $.getJSON("CPS_Locations.geojson",function(data){
 	pointToLayer: function(feature, latLng) {	
 	// variable
 		var gradesColor;
-		var gradesServed = feature.properties.Grades_0_8;
+		var gradesServed = feature.properties.Grades_1_8;
 		if ( gradesServed == "true" ) gradesColor = 'green';
 		else gradesColor = "red";	
 		return new L.CircleMarker(latLng,
 			{ 	radius: 5,
 				fillOpacity: 1,
 				fillColor: 'gradesColor',
+				color: "orange"
 				weight: .7,
 			});
 			},
 				// add popups
-				onEachFeature: function(feature, layer){layer.bindPopup(feature.properties.crs)}
+				onEachFeature: function(feature, layer){layer.bindPopup(feature.properties.school_id)
+				}
 	}).addTo(map);
+});
 
 	// second property - polygon Layer
 $.getJSON("COVID_Vulnerability_Index_Zip.geojson",function(data){
