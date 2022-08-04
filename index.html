@@ -70,20 +70,32 @@ $.getJSON("CPS_Locations.geojson",function(data){
 		// add a property - pointToLayer
 	pointToLayer: function(feature, latLng) {	
 	// variable
-		var agesColor;
-		var agesServed = feature.properties.Ages_0_3;
-		if ( agesServed == "true" ) agesColor = 'green';
-		else agesColor = "red";	
-		L.CircleMarker(latLng,
+		var gradesColor;
+		var gradesServed = feature.properties.Grades_0_8;
+		if ( gradesServed == "true" ) gradesColor = 'green';
+		else gradesColor = "red";	
+		return new L.CircleMarker(latLng,
 			{ 	radius: 5,
 				fillOpacity: 1,
-				fillColor: 'agesColor',
+				fillColor: 'gradesColor',
 				weight: .7,
 			});
 			},
 				// add popups
 				onEachFeature: function(feature, layer){layer.bindPopup(feature.properties.Site_Name)}
 	}).addTo(map);
+
+	// second property - polygon Layer
+$.getJSON("COVID_Vulnerability_Index_Zip.geojson",function(data){
+	L.geoJson(data, {
+		polygonToLayer: function(feature, latLng) {
+			return new L.polygon(latLng,
+				{ color: "light blue",
+				fillOpacity: 1});
+		}
+	}).addTo(map).bringToback();
+
+	
 
 </script>
 
