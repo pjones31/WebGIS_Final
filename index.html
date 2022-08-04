@@ -64,7 +64,7 @@
 	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom, 2012'
 }).addTo(map);
 
-$.getJSON(“CPS_Locations.geojson”,function(data){
+$.getJSON("CPS_Locations.geojson",function(data){
 // load geojson layer
 	L.geoJson(data, {
 		// add a property - pointToLayer
@@ -78,12 +78,12 @@ $.getJSON(“CPS_Locations.geojson”,function(data){
 			{ 	radius: 5,
 				fillOpacity: 1,
 				fillColor: 'agesColor',
-				weight: .7,});
+				weight: .7,
+			});
+			},
 				// add popups
 				onEachFeature: function(feature, layer){layer.bindPopup(feature.properties.Site_Name)}
 	}).addTo(map);
-
-}
 
 	// second property - polygon Layer
 $.getJSON("COVID_Vulnerability_Index_Zip.geojson",function(data){
