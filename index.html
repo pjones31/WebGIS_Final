@@ -37,9 +37,9 @@
 	<body> 
 
 	<div class="intro1">
-		<h1>CPS and Chicago zip codes vulnerable to COVID </h1>
+		<h1>Chicago Public Schools & vulnerable Chicago zip codes to COVID </h1>
 		<div class="intro2">
-		<h2>Exploring public school locations in Chicago with zip codes that are vulnerable to COVID</h2>
+		<h2>Exploring CPS locations with zip codes that are vulnerable to COVID</h2>
 		<!-- Google font -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -90,7 +90,7 @@ $.getJSON("COVID_Vulnerability_Index_Zip.geojson",function(data){
 	L.geoJson(data {
 		style: function(feature){
 			var conditionalColor;
-			var vulnerable = feature.properties.I;
+			var vulnerable = feature.properties.VI;
 			if ( vulnerable > 550 ) conditionalColor = "#54278f";
 			else if ( vulnerable > 450 ) conditionalColor = "#756bb1";
 			else if ( vulnerable > 300 ) conditionalColor = "#9e9ac8";
