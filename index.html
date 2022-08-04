@@ -82,15 +82,18 @@ $.getJSON("CPS_Locations.geojson",function(data){
 			});
 			},
 				// add popups
-				onEachFeature: function(feature, layer){layer.bindPopup(feature.properties.Site_Name)}
+				onEachFeature: function(feature, layer){layer.bindPopup(feature.properties.crs)}
 	}).addTo(map);
 
 	// second property - polygon Layer
 $.getJSON("COVID_Vulnerability_Index_Zip.geojson",function(data){
-	L.geoJson(data,
-		function(feature, latLng)
-				{ color: "light blue",
-				fillOpacity: 1});
+	L.geoJson(data, {
+		pointToLayer: function(feature, latLng)
+				{ 	radius: 6,
+					fillOpacity: .5,
+					fillColor: "pink",
+				});
+	}
 	}).addTo(map).bringToback();
 
 	
