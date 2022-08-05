@@ -85,14 +85,12 @@ $.getJSON("CPS_Locations.geojson",function(data){
 			},
 				// add popups
 				onEachFeature: function(feature, layer){
-					layer.bindPopup(feature.properties.school_id)
+					layer.bindPopup(feature.properties.short_name)
 				}
 	}).addTo(map);
 });
 
-$.getJSON("COVID_Vulnerability_Index_Zip.geojson", function(data){
-	L.geoJson(data).addTo(map);
-});
+
 
 	
 </script>
