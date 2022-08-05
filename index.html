@@ -74,7 +74,7 @@ $.getJSON("CPS_Locations.geojson",function(data){
 	// variable
 		var gradesColor;
 		var gradesServed = feature.properties.grade_cat;
-		if (gradesServed == "HS") gradesColor = "green";
+		if ( gradesServed == "HS" ) gradesColor = "green";
 		else gradesColor = "red";	
 		return new L.CircleMarker(latlng,
 			{ 	radius: 3,
@@ -86,7 +86,7 @@ $.getJSON("CPS_Locations.geojson",function(data){
 			},
 				// add popups
 				onEachFeature: function(feature, layer){
-					layer.bindPopup("Center:" + feature.properties.short_name)
+					layer.bindPopup( "Center:" + feature.properties.short_name )
 				}
 	}).addTo(map);
 });
