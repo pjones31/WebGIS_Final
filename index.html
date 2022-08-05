@@ -90,7 +90,7 @@ $.getJSON("CPS_Locations.geojson",function(data){
 	}).addTo(map);
 });
 
-$.getJSON("COVID_Vulnerability_Index_Zip.geojson", function(data){
+$.getJSON("COVID_Vulnerability_Index_Zip.geojson",function(data){
 	L.geoJson(data).addTo(map).bringToBack();
 });
 
