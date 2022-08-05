@@ -82,8 +82,7 @@ $.getJSON("CPS_Locations.geojson",function(data){
 				color: "orange",
 				weight: .7,
 			});
-			},
-				// add popups
+			},	// add popups
 				onEachFeature: function(feature, layer){
 					layer.bindPopup( "Center:" + feature.properties.short_name )
 				}
