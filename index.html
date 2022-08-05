@@ -91,14 +91,8 @@ $.getJSON("CPS_Locations.geojson",function(data){
 
 	// second property - point Layer
 $.getJSON("COVID_Vulnerability_Index_Zip.geojson",function(data){
-	L.geoJson(data, {
-		polygonToLayer: function(feature, latLng)
-				{ 	
-					fillOpacity: 1,
-					fillColor: "pink",
-				});
-	}
-	}).addTo(map).bringToback();
+	L.geoJson(data).addTo(map).bringToback();
+});
 
 	
 </script>
