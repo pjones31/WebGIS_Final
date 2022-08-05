@@ -78,20 +78,20 @@ $.getJSON("CPS_Locations.geojson",function(data){
 		return new L.CircleMarker(latLng,
 			{ 	radius: 3,
 				fillOpacity: 1,
-				fillColor: gradeServed,
+				fillColor: gradesServed,
 				color: "orange",
 				weight: .7,
 			});
 			},
 				// add popups
 				onEachFeature: function(feature, layer){
-					layer.bindPopup(feature.properties.grade_cat)
+					layer.bindPopup(feature.properties.short_name)
 				}
 	}).addTo(map);
 });
 
 $.getJSON("COVID_Vulnerability_Index_Zip.geojson", function(data){
-	L.geoJson(data).addTo(map);
+	L.geoJson(data).addTo(map).bringToBack();
 });
 
 	
