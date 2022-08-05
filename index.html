@@ -72,14 +72,14 @@ $.getJSON("CPS_Locations.geojson",function(data){
 	pointToLayer: function(feature, latLng) {	
 	// variable
 		var gradesColor;
-		var gradesServed = feature.properties.Grades_1_8;
-		if ( gradesServed == "true" ) gradesColor = 'green';
+		var gradesServed = feature.properties.grade_cat;
+		if ( gradesServed == "HS" ) gradesColor = "green";
 		else gradesColor = "red";	
 		return new L.CircleMarker(latLng,
 			{ 	radius: 5,
 				fillOpacity: 1,
-				fillColor: 'gradesColor',
-				color: "orange"
+				fillColor: gradesServed,
+				color: "orange",
 				weight: .7,
 			});
 			},
@@ -92,9 +92,9 @@ $.getJSON("CPS_Locations.geojson",function(data){
 	// second property - point Layer
 $.getJSON("COVID_Vulnerability_Index_Zip.geojson",function(data){
 	L.geoJson(data, {
-		pointToLayer: function(feature, latLng)
-				{ 	radius: 6,
-					fillOpacity: .5,
+		polygonToLayer: function(feature, latLng)
+				{ 	
+					fillOpacity: 1,
 					fillColor: "pink",
 				});
 	}
