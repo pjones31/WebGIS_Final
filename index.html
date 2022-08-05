@@ -71,14 +71,14 @@ $.getJSON("CPS_Locations.geojson",function(data){
 		// add a property - pointToLayer
 	pointToLayer: function(feature, latLng) {	
 	// variable
-		var gradeColor;
-		var gradeServed = feature.properties.grade_cat;
-		if ( gradeServed == "HS" ) gradeColor = "green";
-		else gradeColor = "red";	
+		var gradesColor;
+		var gradesServed = feature.properties.grade_cat;
+		if ( gradesServed == "HS" ) gradesColor = "green";
+		else gradesColor = "red";	
 		return new L.CircleMarker(latLng,
-			{ 	radius: 5,
+			{ 	radius: 3,
 				fillOpacity: 1,
-				fillColor: gradeServed,
+				fillColor: 'gradeServed',
 				color: "orange",
 				weight: .7,
 			});
