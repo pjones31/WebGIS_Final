@@ -49,7 +49,7 @@
 		</div>
 
 	<div class="info">
-		<p>There are 649 Chicago Public Schools in the City of Chicago. Nearly half of CPS grade schools reside in zip codes that are vulnerable to COVID. Burdening teachers, CPS administrators, and guardians</p>
+		<p>There are 649 Chicago Public Schools in the City of Chicago. Nearly half of CPS grade schools reside in zip codes that are vulnerable to COVID. Burdening teachers, CPS administrators, and guardians.</p>
 		<p>Learn more about health and wellness at CPS <a href="https://www.cps.edu/services-and-supports/health-and-wellness/">here</a></p></div>
 
 </div>
@@ -91,7 +91,9 @@ $.getJSON("CPS_Locations.geojson",function(data){
 	}).addTo(map);
 });
 
-
+$.getJSON("COVID_Vulnerability_Index_Zip.geojson",function(data){
+	L.geoJson(data).addTo(map).bringToBack();
+});
 
 	
 </script>
