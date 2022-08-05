@@ -32,6 +32,7 @@
  		<script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 
+
 	</head>
 
 	<body> 
@@ -69,23 +70,23 @@ $.getJSON("CPS_Locations.geojson",function(data){
 // load geojson layer
 	L.geoJson(data, {
 		// add a property - pointToLayer
-	pointToLayer: function(feature, latLng) {	
+	pointToLayer: function(feature, latlng) {	
 	// variable
 		var gradesColor;
 		var gradesServed = feature.properties.grade_cat;
 		if (gradesServed == "HS") gradesColor = "green";
 		else gradesColor = "red";	
-		return new L.CircleMarker(latLng,
+		return new L.CircleMarker(latlng,
 			{ 	radius: 3,
 				fillOpacity: 1,
-				fillColor: gradesServed,
+				fillColor: gradesColor,
 				color: "orange",
 				weight: .7,
 			});
 			},
 				// add popups
 				onEachFeature: function(feature, layer){
-					layer.bindPopup(feature.properties.short_name)
+					layer.bindPopup("Center:" + feature.properties.short_name)
 				}
 	}).addTo(map);
 });
